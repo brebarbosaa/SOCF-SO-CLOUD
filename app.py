@@ -3,21 +3,14 @@ import psutil
 import os
 import json
 
-# @app.route = 
-# # Obtém versão do S.O. subjacente
-# print(platform.platform())
+@app.route('/info')
+def info():
+    return "Brenda Gabrielli Barbosa"
 
-# # Obtém PID
-# print(os.getpid())
 
-# #Obtém uso de CPU em porcentagem
-# print(psutil.cpu_percent())
-
-# # Obtém uso de memória em MB
-# print(psutil.vitual_memory().used // 1024 ** 2)
-
-print("Nome: Brenda Barbosa")
-metricas = {
+@app.route('/metricas')
+def metricas():
+    metricas = {
     'so' : platform.platform(),
     'pid' : os.getpid(),
     'uso_cpu' : psutil.cpu_percent(),
