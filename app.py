@@ -23,5 +23,5 @@ def metricas():
 # transforma resultados em texto e ignora ascii
 print(json.dumps(metricas, ensure_ascii=False))
 
-if __name__ = '__main__':
+if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)
