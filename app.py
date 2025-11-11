@@ -4,18 +4,11 @@ import psutil
 import os
 import json
 
-app = Flask(__name__)
-
-metricas = {
-    'so' : platform.platform(),
-    'pid' : os.getpid(),
-    'uso_cpu' : psutil.cpu_percent(),
-    'memoria_mb': psutil.virtual_memory().used // 1024 ** 2
-    }   
+app = Flask(__name__) 
 
 @app.route('/')
 def home():
-    return """"
+    return """
     <h1>SO em Cloud</h1>
     <p>Digite '/metricas' ou '/info' na url para mais informações!</p> 
     """
@@ -25,7 +18,13 @@ def info():
     return "Brenda Gabrielli Barbosa"
 
 @app.route('/metricas')
-def metricas():
+def exibe_metricas():
+    metricas = {
+        'so' : platform.platform(),
+        'pid' : os.getpid(),
+        'uso_cpu' : psutil.cpu_percent(),
+        'memoria_mb': psutil.virtual_memory().used // 1024 ** 2
+    }  
     # transforma resultados em texto e ignora ascii
     return json.dumps(metricas, ensure_ascii=False)
 
