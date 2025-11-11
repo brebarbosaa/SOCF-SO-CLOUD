@@ -13,6 +13,13 @@ metricas = {
     'memoria_mb': psutil.virtual_memory().used // 1024 ** 2
     }   
 
+@app.route('/')
+def home():
+    return """"
+    <h1>SO em Cloud</h1>
+    <p>Digite '/metricas' ou '/info' na url para mais informações!</p> 
+    """
+
 @app.route('/info')
 def info():
     return "Brenda Gabrielli Barbosa"
