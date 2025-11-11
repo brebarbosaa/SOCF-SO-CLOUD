@@ -4,7 +4,7 @@ import psutil
 import os
 import json
 
-app = Flask(__name__)
+APP = Flask(__name__)
 
 @app.route('/info')
 def info():
